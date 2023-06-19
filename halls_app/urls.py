@@ -31,5 +31,5 @@ urlpatterns = [
     path('help', views.help),
     path('about', views.about),
     path('book', views.book_hall),
-    path('book_success/<hall_name>', views.book_success),
+    path('book_success', views.book_success),
 ]

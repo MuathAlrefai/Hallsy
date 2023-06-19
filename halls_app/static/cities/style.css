@@ -293,12 +293,6 @@ body.dark .search-field i {
   margin-bottom: 50px;
   border-radius: 10px;
 }
-.container:hover .box {
-  /* transform: rotateY(25deg); */
-}
-.container .box:hover ~ .box {
-  /* transform: rotateY(-25deg); */
-}
 .container .box:hover {
   transform: rotateY(0deg) scale(1.25);
   z-index: 1;
@@ -433,6 +427,7 @@ body {
   color: #ffeba7;
   position: relative;
   bottom: -206px;
+  width: 100%;
 }
 
 .footer-basic ul {
@@ -504,7 +499,7 @@ body {
   margin: 0px auto;
 }
 
-/* !about u styling */
+/* !about us styling */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 *{
@@ -677,7 +672,7 @@ border-radius:5px;
   color: black;
 }
 
-/* << This is a new css lines for the hall info , Done By Awad >> */
+/*! << This is a new css lines for the hall info , Done By Awad >> */
 .card {
   margin-bottom: 30px;
 }
@@ -707,4 +702,11 @@ border-radius:5px;
 .container_hall_info{
   margin-top:20px;
   background-color: #edf1f5;
+}
+.carousel-inner {
+  height: 363px;
+  margin-top: 64px;
+}
+.info_img {
+  width: 100%;
 }

@@ -15,18 +15,22 @@
         <input type="text" name="hall_name"><br>
         <label for="hall_phone">Phone Number</label>
         <input type="text" name="hall_phone"><br>
+        <label for="hall_phone">Mobile Number</label>
+        <input type="text" name="hall_mobile"><br>
+        <label for="hall_phone">Price</label>
+        <input type="number" name="hall_price"><br>
         <label for="hall_desc">Description</label><br>
         <textarea name="hall_desc" cols="50" rows="5" placeholder="Enter Hall Description"></textarea><br>
         <label for="hall_capacity">Capacity</label>
         <input type="text" name="hall_capacity" placeholder="Enter Capacity *e.g. 50"><br>
-        <label for="hall_rating">Hall Rating</label>
+        <!-- <label for="hall_rating">Hall Rating</label>
         <select name="hall_rating">
             <option value="1">Horrible</option>
             <option value="2">Bad</option>
             <option value="3">Alright</option>
             <option value="4">Good</option>
             <option value="5">Amazing</option>
-        </select><br>
+        </select><br> -->
         <label for="hall_city">Choose a City</label>
         <select name="hall_city">
             {% for city in cities %}
@@ -41,9 +45,10 @@
 
             <h2>Hall's name: {{hall.name}}</h2>
             <h2>Hall's Phone number: {{hall.phone}}</h2>
+            <h2>Hall's Mobile number: {{hall.mobile}}</h2>
+            <h2>Hall's Price: {{hall.price}}</h2>
             <h2>Hall's Description: {{hall.description}}</h2>
             <h2>Hall's Capacity: {{hall.capacity}} People</h2>
-            <h2>Hall's Rating: {{hall.rating}}</h2>
             <h2>Hall's City: {{hall.city.name}}</h2>
             <hr>
         </div>

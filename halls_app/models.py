@@ -11,12 +11,23 @@ class City(models.Model):
 
 class Hall(models.Model):
     name = models.CharField(max_length=45)
+    mobile = models.CharField(max_length=10, default=0000000000)
     phone = models.CharField(max_length=10, default=0000000000)
+    price = models.IntegerField(default=0)
     description = models.TextField()
     capacity = models.CharField(max_length=255)
-    rating = models.IntegerField(default=0)
     city = models.ForeignKey(City, related_name="halls", on_delete=models.CASCADE)
-    user_booked = models.ManyToManyField(User, related_name="halls_booked")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    # rating = models.IntegerField(default=0)
+    # user_booked = models.ManyToManyField(User, related_name="halls_booked")
+
+class Bill(models.Model):
+    date = models.DateField(auto_now=False, auto_now_add=False)
+    time_from = models.TimeField(auto_now=False, auto_now_add=False)
+    time_to = models.TimeField(auto_now=False, auto_now_add=False)
+    user = models.ForeignKey(User, related_name="bills", on_delete=models.CASCADE)
+    hall = models.ForeignKey(Hall, related_name="hall_bills", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -72,19 +83,24 @@ def get_halls_model():
 
 # add hall to user's booked halls
 def book_hall_model(request):
-    user = get_user_session(request)
-    hall = request.POST['hall_id']
-    hall.user_booked.add(user)
+    user = User.objects.get(id=request.session['userid'])
+    bill_hall = Hall.objects.get(id = request.POST['hall_id'])
+    date = request.POST['date']
+    time_from = request.POST['time_from']
+    time_to = request.POST['time_to']
+    Bill.objects.create(user = user, hall = bill_hall, date = date, time_from = time_from, time_to = time_to)
+    
 
 # add a new hall to a city
 def add_hall_model(request):
     hall_name = request.POST['hall_name']
     hall_phone = request.POST['hall_phone']
+    hall_mobile = request.POST['hall_mobile']
+    hall_price = request.POST['hall_price']
     hall_desc = request.POST['hall_desc']
     hall_capacity = request.POST['hall_capacity']
-    hall_rating = request.POST['hall_rating']
     hall_city = City.objects.get(id = int(request.POST['hall_city'])) 
-    Hall.objects.create(name = hall_name, phone = hall_phone, description = hall_desc, capacity = hall_capacity, city = hall_city, rating = hall_rating)
+    Hall.objects.create(name = hall_name, phone = hall_phone, mobile = hall_mobile, description = hall_desc, capacity = hall_capacity, city = hall_city, price = hall_price)
 
 
 # update user password model

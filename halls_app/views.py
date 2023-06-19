@@ -132,15 +132,17 @@ def update_password(request):
 # book a specific hall from the info page
 def book_hall(request):
     models.book_hall_model(request)
-    return redirect(f'/book_success/{models.book_hall_model(request).hall.name}')
+    return redirect('/book_success')
 
 # render a successful booking (purchase) for a hall
-def book_success(request, hall_name):
+def book_success(request):
     context = {
         "user": models.get_user_session(request),
-        "hall": models.get_hall_by_name_model(hall_name),
     }
     return render(request, 'user/book_success.html', context)
+
+# # add a hall to the user's bill (book it)
+# def book_hall
 
 ######################## ADMIN PAGES ########################
 
