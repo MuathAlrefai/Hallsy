@@ -10,6 +10,11 @@
     />
     <title>Snippet - GoSNippets</title>
     {% load static %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
     <link
       rel="shortcut icon"
       href="{% static 'images/favicon.jpg' %}"
@@ -61,27 +66,57 @@
         </div>
       </div>
     </nav>
-    <div class="container">
-      <h1 id="title_header">All Halls</h1>
-    </div>
+    <!-- 
     <div class="container">
       <div class="details">
-        {% for hall in halls %}
+        
         <div class="hall">
           <h2>
             Hall name:
-            <a href="/halls/{{hall.city.name}}/{{hall.name}}">{{hall.name}}</a>
+            
           </h2>
           <p>Phone number: {{hall.phone}}</p>
           <p>Description: {{hall.description}}</p>
           <p>Capacity: {{hall.capacity}} People</p>
-          <p>Rating: {{hall.rating}}</p>
+          <p>Rating: </p>
           <p>City: {{hall.city.name}}</p>
           <hr />
         </div>
-        {% endfor %}
+        
       </div>
+    </div> -->
+    <div>
+      <h1>All Halls</h1>
     </div>
+    {% for hall in halls %}
+    <div class="wrapper">
+      <div id="container" d-flex mt-4 p-4">
+
+          <div id="main" class="card mb-3" style="max-width:740px;  ">
+              <div class="row g-0">
+                  <div class="col-md-6">
+                      <img src="{% static 'cities/17.jpg' %}" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-6">
+                      <div class="card-body">
+                          <h5 class="card-title">
+                              {{hall.name}}
+                          </h5>
+                          <p class="card-text">
+                              {{hall.description}}
+                          </p>
+                          <p class="card-text">
+                              <small class="text-muted">
+                                {{hall.phone}}
+                              </small>
+                          </p>
+                      </div>
+                  </div>
+              </div><button id="btn"><a href="/halls/{{hall.city.name}}/{{hall.name}}">See Details</a></button>
+          </div>
+      </div>
+  </div>
+  {% endfor %}
 
     <script src="{% static 'cities/script.js' %}"></script>
     <script
