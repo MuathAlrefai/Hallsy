@@ -23,11 +23,11 @@
         <i class='bx bx-x siderbarClose'></i>
       </div>
         <ul class="nav-links">
-          <li><a href="/sign">Login</a></li>
-          <li><a href="/cities_all">Home</a></li>
-          <li><a href="/halls_all">Halls</a></li>
-          <li><a href="/help_all">Help</a></li>
-          <li><a href="/about_all">About</a></li>
+            <li><a href="/sign">Login</a></li>
+            <li><a href="/cities_all">Home</a></li>
+            <li><a href="/halls_all">Halls</a></li>
+            <li><a href="/help_all">Help</a></li>
+            <li><a href="/about_all">About</a></li>
         </ul>
     </div>
     <div class="darkLight-searchBox">
@@ -51,16 +51,16 @@
     </div>
   </nav>
   <div class="container">
-    <h1 id="title_header">Choose a City</h1>
+    <h1 id="title_header">{{city.name}} halls</h1>
   </div>
   <div class="container">
-    {% for city in cities %}
+    {% for hall in city.halls.all %}
     <div class="card">
       <div class="imgbox">
         <img src="{{city.image}}" alt="city_image" width="320px">
       </div>
       <div class="details">
-        <h2><a href="/halls_all/{{city.name}}">{{city.name}}</h2>
+        <h2><a href="/halls_all/{{hall.city.name}}/{{hall.name}}">{{hall.name}}</h2>
       </div>
     </div>
     {% endfor %}
