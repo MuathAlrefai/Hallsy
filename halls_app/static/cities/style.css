@@ -364,8 +364,9 @@ body.dark .search-field i {
   transform: translateY(0px);
 }
 body {
-  background-image: url("https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg");
-  background-size: cover;
+  /* background-image: url("https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg"); */
+  /* background-size: cover; */
+  background-color: #fffcf2;
 
   -webkit-animation: slidein 100s;
   animation: slidein 100s;
@@ -493,6 +494,7 @@ body {
   width: 50%;
   text-align: center;
   margin: 100px auto;
+  background-color: #fff7da;
 }
 .containerr hr {
   width: 50%;
@@ -539,7 +541,7 @@ border-radius:5px;
 
 }
 .content-section .title{
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     font-size: 20px;
 }
 .content-section .content h3{
@@ -552,7 +554,6 @@ border-radius:5px;
     font-family: sans-serif;
     font-size: 17px;
     line-height: 1.5;
-
 }
 .content-section .content .button a{
     background-color: #3d3d3d;
@@ -627,6 +628,30 @@ border-radius:5px;
     }
 }
 
+.button_help a{
+  background-color: #3d3d3d;
+  padding: 12px 40px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px ;
+  letter-spacing: 1.5px;
+  transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+  transition-property: color, background-color, box-shadow, border-color;
+}
+.button_help a:hover{
+  background-color:#2f2e3e;
+  color: #ffeba7;
+}
+.social_help{
+  margin: 30px 10px;
+}
+.social_help i{
+  color:#2f2e3e;
+  font-size: 30px;
+  padding: 0px 10px;
+  transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+  transition-property: color, background-color, box-shadow, border-color;
+}
 
 
 
@@ -709,4 +734,28 @@ border-radius:5px;
 }
 .info_img {
   width: 100%;
+}
+
+/* !profile page */
+.profile_anchor {
+  color: #ffeba7;
+  transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+  transition-property: color, background-color, box-shadow, border-color;
+}
+.profile_anchor:hover {
+  color: gold;
+  text-decoration: none;
+}
+.profile_btn {
+  padding: 5px 10px;
+  background-color: #ffeba7;
+  color: black;
+  border: 1px solid black;
+  box-shadow: 1px 1px 1px;
+  border-radius: 5px;
+  transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+  transition-property: color, background-color, box-shadow, border-color;
+}
+.profile_btn:hover {
+  background-color: gold;
 }

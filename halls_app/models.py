@@ -5,7 +5,8 @@ import bcrypt
 
 class City(models.Model):
     name = models.CharField(max_length=45)
-    image = models.ImageField(upload_to ='city_imgs/')
+    # image = models.ImageField(upload_to ='city_imgs/')
+    image = models.URLField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -16,6 +17,9 @@ class Hall(models.Model):
     price = models.IntegerField(default=0)
     description = models.TextField()
     capacity = models.CharField(max_length=255)
+    img1 = models.URLField(max_length=500)
+    img2 = models.URLField(max_length=500)
+    img3 = models.URLField(max_length=500)
     city = models.ForeignKey(City, related_name="halls", on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -98,9 +102,12 @@ def add_hall_model(request):
     hall_mobile = request.POST['hall_mobile']
     hall_price = request.POST['hall_price']
     hall_desc = request.POST['hall_desc']
+    hall_img1 = request.POST['hall_img1']
+    hall_img2 = request.POST['hall_img2']
+    hall_img3 = request.POST['hall_img3']
     hall_capacity = request.POST['hall_capacity']
     hall_city = City.objects.get(id = int(request.POST['hall_city'])) 
-    Hall.objects.create(name = hall_name, phone = hall_phone, mobile = hall_mobile, description = hall_desc, capacity = hall_capacity, city = hall_city, price = hall_price)
+    Hall.objects.create(name = hall_name, phone = hall_phone, mobile = hall_mobile, description = hall_desc, capacity = hall_capacity, city = hall_city, price = hall_price, img1 = hall_img1, img2 = hall_img2, img3 = hall_img3)
 
 
 # update user password model

@@ -13,6 +13,7 @@ urlpatterns = [
     path('cities_admin', views.cities_admin),
     path('add_city', views.add_city),
     path('delete_city', views.delete_city),
+    path('delete_hall', views.delete_hall),
     path('halls/admin/<city_name>', views.city_halls_admin),
     path('halls/<city_name>', views.city_halls),
     path('halls/admin/<city_name>/<hall_name>', views.hall_info_admin),

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="shortcut icon" href="{% static 'images/favicon.jpg' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'cities/style.css' %}">
 </head>
  <body>
@@ -26,11 +26,12 @@
         <i class='bx bx-x siderbarClose'></i>
       </div>
         <ul class="nav-links">
-          <li><a href="/sign">Login</a></li>
-          <li><a href="/cities_all">Home</a></li>
-          <li><a href="/halls_all">Halls</a></li>
-          <li><a href="/help_all">Help</a></li>
-          <li><a href="/about_all">About</a></li>
+          <li><a href="/profile">{{user.username}}</a></li>
+          <li><a href="/cities">Home</a></li>
+          <li><a href="/halls">Halls</a></li>
+          <li><a href="/help">Help</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/logout_user">Logout</a></li>
         </ul>
     </div>
     <div class="darkLight-searchBox">
@@ -57,12 +58,12 @@
     <div class="container_about">
         <div class="content-section">
             <div class="title">
-                <h1>About Us</h1>
+                <h1>Booking Successful</h1>
             </div>
             <div class="content">
                 <h3>Thank you for your bussiness, Your order has been booked successfully!</h3>
                 <div class="button">
-                  <p><a href="/cities">back to home page</a></p>
+                  <p><a href="/cities" class="profile_anchor">back to home page</a></p>
                 </div>
             </div>
         </div>

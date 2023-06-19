@@ -61,11 +61,17 @@ def cities(request):
 
 # render about us page
 def about(request):
-    return render(request, 'about.html')
+    context = {
+        "user": models.get_user_session(request),
+    }
+    return render(request, 'about.html', context)
 
 # render help page
 def help(request):
-    return render(request, 'help.html')
+    context = {
+        "user": models.get_user_session(request),
+    }
+    return render(request, 'help.html', context)
 
 # render all halls
 def halls(request):
@@ -116,7 +122,10 @@ def update_profile(request):
 
 # render change user password form
 def change_password(request):
-    return render(request, 'user/change_password.html')
+    context = {
+        "user": models.get_user_session(request),
+    }
+    return render(request, 'user/change_password.html', context)
 
 # update user password and redirect back to profile page
 def update_password(request):
@@ -141,8 +150,6 @@ def book_success(request):
     }
     return render(request, 'user/book_success.html', context)
 
-# # add a hall to the user's bill (book it)
-# def book_hall
 
 ######################## ADMIN PAGES ########################
 
@@ -183,6 +190,12 @@ def delete_city(request):
     city = models.City.objects.get(id = request.POST['city_id'])
     city.delete()
     return redirect('/cities_admin')
+
+# delete a hall
+def delete_hall(request):
+    city = models.Hall.objects.get(id = request.POST['hall_id'])
+    city.delete()
+    return redirect('/halls_admin')
 
 # render all halls
 def halls_admin(request):
