@@ -2,3 +2,8 @@
 env/
 venv/
 .vscode/
+halls_app/__pycache__
+halls_app/migrations
+login_app/__pycache__
+login_app/migrations
+db.sqlite3
